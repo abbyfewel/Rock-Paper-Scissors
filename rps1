@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  char player1;
+  char player2;
+  cout << "Player 1, enter R, P, or S for Rock, Paper, Scissors: ";
+  cin >> player1;
+  cout << "Player 2, enter R, P, or S for Rock, Paper, Scissors: ";
+  cin >> player2;
+  // checking if both inputs are valid
+  if ((player1 != ('S')) && (player1 != ('P')) && (player1 != ('R'))) {
+    cout << "Invlaid inputs. Please try again.";
+  } else if ((player2 != ('S')) && (player2 != ('P')) && (player2 != ('R'))) {
+    cout  << "Invlaid inputs. Please try again.";
+  }
+  //if both are valid...
+  if (player1 == 'R') { // player one played rock
+    if (player2 == 'R') {
+      cout << "It's a tie!";
+    } else if (player2 == 'P') {
+      cout << "Player 2 wins!";
+    } else if (player2 == 'S') {
+      cout << "Player 1 wins!";
+    }
+  } else if (player1 == 'S') { // player one played scissors
+    if (player2 == 'S') {
+      cout << "It's a tie!";
+    } else if (player2 == 'R') {
+      cout << "Player 2 wins!";
+    } else if (player2 == 'P') {
+      cout << "PLayer 1 wins!";
+    }
+  } else if (player1 == 'P') { // player one played paper
+    if (player2 == 'P') {
+      cout << "It's a tie!";
+    } else if (player2 == 'R') {
+      cout << "Player 1 wins!";
+    } else if (player2 == 'S') {
+      cout << "Player 2 wins!";
+    }
+  }
+}
