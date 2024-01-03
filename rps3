@@ -1,0 +1,82 @@
+#include <iostream>
+#include <stdlib.h> 
+#include <ctime>
+using namespace std;
+
+int main() {
+  char player;
+  cout << "Enter an upper or lowercase R, P, or S value for Rock, Paper, Scissors: ";
+  cin >> player; // player's move
+  if ((player != 'R') && (player != 'r') && (player != 'P') && (player != 'p') && (player != 'S') && (player != 's')) {
+    cout << "Invalid move. Please try again. ";
+  }
+  srand((int) time(0));
+  int computer = (rand() % 3); 
+  char comp; // the character 0, 1, or 2 for computer's play
+  if (computer == 0) {
+    comp = 'R';
+    cout << "The computer played Rock.\n";
+  } else if (computer == 1) {
+    comp = 'S';
+    cout << "The computer played Scissors.\n";
+  } else if (computer == 2) {
+    comp = 'P';
+    cout << "The computer played Paper.\n";
+  }
+  switch (player) { // determining who is winning 
+    case 'R': // rock
+      if (comp == 'R') {
+        cout << "It's a tie! ";
+      } else if (comp == 'S') {
+        cout << "You win! ";
+      } else if (comp == 'P') {
+        cout << "Computer wins! ";
+      }
+      break;
+    case 'r': 
+      if (comp == 'R') {
+        cout << "It's a tie! ";
+      } else if (comp == 'S') {
+        cout << "You win! ";
+      } else if (comp == 'P') {
+        cout << "Computer wins! ";
+      }
+      break;
+    case 'P': // paper
+      if (comp == 'R') {
+        cout << "You win! ";
+      } else if (comp =='S') {
+        cout << "Computer wins! ";
+      } else if (comp == 'P') {
+        cout << "It's a tie! ";
+      }
+      break;
+    case 'p':
+      if (comp == 'R') {
+        cout << "You win! ";
+      } else if (comp =='S') {
+        cout << "Computer wins! ";
+      } else if (comp == 'P') {
+        cout << "It's a tie! ";
+      }
+      break;
+    case 'S': // scissors
+      if (comp == 'S') {
+        cout << "It's a tie!";
+      } else if (comp == 'P') {
+        cout << "You win! ";
+      } else if (comp == 'R') {
+        cout << "Computer wins! ";
+      }
+      break;
+    case 's':
+      if (comp == 'S') {
+        cout << "It's a tie!";
+      } else if (comp == 'P') {
+        cout << "You win! ";
+      } else if (comp == 'R') {
+        cout << "Computer wins! ";
+      }
+      break;
+  }
+}
