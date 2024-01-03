@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  int playerWins = 0; // how many times the player has won
+  int compWins = 0; // how many times the computer has won
+  char player; // the move of the player
+  int total = 0; // total number of games that has been played
+  while ((playerWins <3) && (compWins < 3)) { // until someone wins three times...
+    cout << "\nEnter an upper or lowercase R, P, or S value for Rock, Paper, Scissors: ";
+    cin >> player; // player's move
+    if ((player != 'R') && (player != 'r') && (player != 'P') && (player != 'p') && (player != 'S') && (player != 's')) { // if the player does not play rock, paper, or scissors
+      cout << "Invalid move. Please try again. ";
+    }
+    srand((int) time(0)); // random value
+    int computer = (rand() % 3); 
+    char comp; // the character 0, 1, or 2 for computer's play
+    if (computer == 0) { // determining what the computer played
+      comp = 'R'; 
+      cout << "The computer played Rock.\n";
+    } else if (computer == 1) {
+      comp = 'S';
+      cout << "The computer played Scissors.\n";
+    } else if (computer == 2) {
+      comp = 'P';
+      cout << "The computer played Paper.\n";
+    }
+    if (player == 'r' || player == 'R') { // if player plays rock...
+      if (comp == 'r' || comp == 'R') {
+        cout << "It's a tie! No points this round.\n";
+        total++; // adding one to the game total
+      } else if (comp == 'P' || comp == 'p') {
+        compWins++; // adding one to computer wins
+        cout << "Computer wins! Totals: player " << playerWins << ", computer " << compWins;
+        total++;
+      } else {
+        playerWins++; // adding one to player wins
+        cout << "Player wins! Totals: player " << playerWins << ", computer " << compWins;
+        total++;
+      }
+    } else if (player == 's' || player == 'S') { // same process as rock
+      if (comp == 's' || comp == 'S') {
+        cout << "It's a tie! No points this round.\n";
+        total++;
+      } else if (comp == 'R' || comp == 'r') {
+        compWins++;
+        cout << "Computer wins! Totals: player " << playerWins << ", computer " << compWins;
+        total++;
+      } else {
+        playerWins++;
+        cout << "Player wins! Totals: player " << playerWins << ", computer " << compWins;
+        total++;
+      }
+    } else if (player == 'p' || player == 'P') { // same process as rock
+      if (comp == 'p' || comp == 'P') {
+        cout << "It's a tie! No points this round.\n";
+        total++;
+      } else if (comp == 'S' || comp == 's') { 
+        compWins++;
+        cout << "Computer wins! Totals: player " << playerWins << ", computer " << compWins;
+        total++;
+      } else {
+        playerWins++;
+        cout << "Player wins! Totals: player " << playerWins << ", computer " << compWins;
+        total++;
+      }
+    }
+  }
+  if (playerWins == 3) { // once the player or computer wins three times...
+    cout << "\nPlayer wins! Total games: " << total;
+  } else {
+    cout << "\nComputer wins! Total games: " << total;
+  }
+}
