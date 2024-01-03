@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << "Valid inputs for this game of Rock, Paper, Scissors are R, r, S, s, P, and p.\n";
+  char player1;
+  char player2;
+  cout << "Player 1, enter your move: ";
+  cin >> player1;
+  cout << "Player 2, enter your move: ";
+  cin >> player2;
+  // checking for valid inputs: 
+  if ((player1 != ('S')) && (player1 != ('P')) && (player1 != ('R')) && (player1 != ('s')) && (player1 != ('p')) && (player1 != ('r'))) {
+    cout << "Invlaid inputs. Please try again.";
+  } else if ((player2 != ('S')) && (player2 != ('P')) && (player2 != ('R')) && (player2 != ('s')) && (player2 != ('p')) && (player2 != ('r'))) {
+    cout  << "Invlaid inputs. Please try again.";
+  }
+  //if all inputs are valid:
+  switch (player1) { // determining who is winning 
+    // rock
+    case 'R':
+      if ((player2 == 'R')|| (player2 == 'r')){
+        cout << "It's a tie!";
+      } else if ((player2 == 'P') || (player2 == 'p')) {
+      cout << "Player 2 wins!";
+      } else if ((player2 == 'S')|| (player2 == 's')) {
+      cout << "Player 1 wins!";
+      }
+      break;
+    case 'r':
+      if ((player2 == 'R')|| (player2 == 'r')){
+      cout << "It's a tie!";
+      } else if ((player2 == 'P') || (player2 == 'p')) {
+        cout << "Player 2 wins!";
+      } else if ((player2 == 'S')|| (player2 == 's')) {
+        cout << "Player 1 wins!";
+      }
+      break;
+    // scissors
+    case 'S':
+      if ((player2 == 'S') || (player2 == 's')) {
+        cout << "It's a tie!";
+      } else if ((player2 == 'R') || (player2 == 'r')) {
+      cout << "Player 2 wins!";
+      } else if ((player2 == 'P') || (player2 == 'p')) {
+      cout << "PLayer 1 wins!";
+      }
+      break;
+    case 's':
+      if ((player2 == 'S') || (player2 == 's')) {
+      cout << "It's a tie!";
+      } else if ((player2 == 'R') || (player2 == 'r')) {
+        cout << "Player 2 wins!";
+      } else if ((player2 == 'P') || (player2 == 'p')) {
+        cout << "PLayer 1 wins!";
+      }
+      break;
+    // paper
+    case 'P':
+      if ((player2 == 'P') || (player2 == 'p')) {
+        cout << "It's a tie!";
+      } else if ((player2 == 'R') || (player2 == 'r')) {
+      cout << "Player 1 wins!";
+      } else if ((player2 == 'S') || (player2 == 's')) {
+      cout << "Player 2 wins!";
+      }
+      break;
+    case 'p':
+      if ((player2 == 'P') || (player2 == 'p')) {
+      cout << "It's a tie!";
+      } else if ((player2 == 'R') || (player2 == 'r')) {
+        cout << "Player 1 wins!";
+      } else if ((player2 == 'S') || (player2 == 's')) {
+        cout << "Player 2 wins!";
+      }
+      break;
+  }
+}
